@@ -1,0 +1,86 @@
+﻿<statuse>
+	<add name="Offered" id="1">
+		<activities>
+			<add name="Circulation" id="1"></add>
+		</activities>
+		<allowessteps>			
+			<add id="2"></add>
+			<add id="9"></add>
+		</allowessteps>
+	</add>
+	<add name="WaitingForPermission" id="2">
+		<activities>
+			<add name="Permission from 1" id="2"></add>
+			<add name="Permission from 2" id="3"></add>
+		</activities>
+		<allowessteps>
+			<add id="1"></add>
+			<add id="3"></add>
+			<add id="9"></add>
+		</allowessteps>
+	</add>
+	<add name="Reqritement" id="3">
+		<activities>
+			<add name="Selection" id="4"></add>
+			<add name="Preparation" id="5"></add>
+		</activities>
+		<allowessteps>
+			<add id="2"></add>
+			<add id="4"></add>
+			<add id="9"></add>
+		</allowessteps>
+	</add>
+	<add name="WaitingForApproval" id="4">
+		<activities>
+			<add name="Approved by Person 1" id="6"></add>
+			<add name="Approved by Person 2" id="7"></add>
+			<add name="Approved by Person 3" id="8"></add>
+			<add name="Approved by Person 4" id="9"></add>
+		</activities>
+		<allowessteps>
+			<add id="3"></add>
+			<add id="5"></add>
+			<add id="9"></add>
+		</allowessteps>
+	</add>
+	<add name="WaitingForStart" id="5">
+		<activities>
+			<add name="Leave Bangladesh" id="10"></add>
+			<add name="Arrived in Training Country" id="10"></add>
+			<add name="Reported" id="10"></add>
+		</activities>
+		<allowessteps>
+			<add id="4"></add>
+			<add id="6"></add>
+			<add id="9"></add>
+		</allowessteps>
+	</add>
+	<add name="OnGoing" id="6">
+		<activities>
+		</activities>
+		<allowessteps>
+			<add id="7"></add>
+			<add id="9"></add>
+		</allowessteps>
+	</add>
+	<add name="WaitingForReport" id="7">
+		<activities>
+		</activities>
+		<allowessteps>
+			<add id="8"></add>
+		</allowessteps>
+	</add>
+	<add name="Completed" id="8">
+		<activities>
+		</activities>
+		<allowessteps>
+		</allowessteps>
+	</add>
+	<add name="Canceled" id="9">
+		<activities>
+			<add name="ttt" id="1"></add>
+		</activities>
+		<allowessteps>
+		</allowessteps>
+	</add>
+</statuse>

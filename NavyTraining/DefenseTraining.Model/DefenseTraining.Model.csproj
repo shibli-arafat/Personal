@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2B5DC90C-C619-43C0-95D0-C81B0B9039BB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DefenseTraining.Model</RootNamespace>
+    <AssemblyName>DefenseTraining.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AllowancePaymentType.cs" />
+    <Compile Include="AllowanceSetting.cs" />
+    <Compile Include="AllowanceSettingDetailType.cs" />
+    <Compile Include="AutoCalcBase.cs" />
+    <Compile Include="Budget.cs" />
+    <Compile Include="BudgetCode.cs" />
+    <Compile Include="Payment.cs" />
+    <Compile Include="PaymentSchedule.cs" />
+    <Compile Include="TrainingFilter.cs" />
+    <Compile Include="Course.cs" />
+    <Compile Include="TraineeParam.cs" />
+    <Compile Include="Training.cs" />
+    <Compile Include="TrainingOffer.cs" />
+    <Compile Include="CountryGroup.cs" />
+    <Compile Include="Expense.cs" />
+    <Compile Include="ExpenseHead.cs" />
+    <Compile Include="Person.cs" />
+    <Compile Include="Privilege.cs" />
+    <Compile Include="AllowanceSettingDetail.cs" />
+    <Compile Include="RankGroup.cs" />
+    <Compile Include="Role.cs" />
+    <Compile Include="Country.cs" />
+    <Compile Include="Event.cs" />
+    <Compile Include="EventFilter.cs" />
+    <Compile Include="EventReminder.cs" />
+    <Compile Include="Reminder.cs" />
+    <Compile Include="EventType.cs" />
+    <Compile Include="ModelBase.cs" />
+    <Compile Include="Rank.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequiredDoc.cs" />
+    <Compile Include="Trainee.cs" />
+    <Compile Include="TrainingReminder.cs" />
+    <Compile Include="User.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

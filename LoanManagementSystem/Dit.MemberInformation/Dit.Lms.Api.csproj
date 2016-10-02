@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DA27A452-701C-4F05-84A8-B51A8FC191D9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Dit.Lms.Api</RootNamespace>
+    <AssemblyName>Dit.Lms.Api</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>http://localhost/Dit.Lms.Api/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Api\ILoanService.cs" />
+    <Compile Include="Api\ILoanServiceDal.cs" />
+    <Compile Include="Api\LoanService.cs" />
+    <Compile Include="Api\LoanServiceDal.cs" />
+    <Compile Include="Api\LoanServiceDalFactory.cs" />
+    <Compile Include="Api\LoanServiceFactory.cs" />
+    <Compile Include="Data\DreamData.cs" />
+    <Compile Include="Data\Expense.cs" />
+    <Compile Include="Data\ExpenseCollection.cs" />
+    <Compile Include="Data\ExpenseHead.cs" />
+    <Compile Include="Data\ExpenseHeadCollection.cs" />
+    <Compile Include="Data\ExpenseReportData.cs" />
+    <Compile Include="Data\ExpenseReportDataCollection.cs" />
+    <Compile Include="Data\Income.cs" />
+    <Compile Include="Data\IncomeCollection.cs" />
+    <Compile Include="Data\IncomeHead.cs" />
+    <Compile Include="Data\IncomeHeadCollection.cs" />
+    <Compile Include="Data\IncomeReportData.cs" />
+    <Compile Include="Data\IncomeReportDataCollection.cs" />
+    <Compile Include="Data\LoanDisbursement.cs" />
+    <Compile Include="Data\LoanDisbursementCollection.cs" />
+    <Compile Include="Data\LoanDisbursementReportData.cs" />
+    <Compile Include="Data\LoanRepaymentCollection.cs" />
+    <Compile Include="Data\LoanRepayment.cs" />
+    <Compile Include="Data\MemberComparer.cs" />
+    <Compile Include="Data\MemberReportData.cs" />
+    <Compile Include="Data\MemberReportDataCollection.cs" />
+    <Compile Include="Data\Month.cs" />
+    <Compile Include="Data\MonthlyDeposit.cs" />
+    <Compile Include="Data\Member.cs" />
+    <Compile Include="Data\MemberCollection.cs" />
+    <Compile Include="Data\MonthlyDepositCollection.cs" />
+    <Compile Include="Data\MonthlyDepositReportData.cs" />
+    <Compile Include="Data\MonthlyDepositReportDataCollection.cs" />
+    <Compile Include="Data\Religion.cs" />
+    <Compile Include="Data\SystemConfig.cs" />
+    <Compile Include="Data\SystemConfigDetail.cs" />
+    <Compile Include="Data\SystemConfigDetailCollection.cs" />
+    <Compile Include="Data\UserCollection.cs" />
+    <Compile Include="Exceptions\DataNotFoundException.cs" />
+    <Compile Include="Exceptions\InvalidDataException.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Data\Relation.cs" />
+    <Compile Include="Data\User.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dit.Common\Dit.Common.csproj">
+      <Project>{38B8396C-B6A8-473C-80C6-3A2864FA882B}</Project>
+      <Name>Dit.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,401 @@
+ALTER TABLE Training
+DROP COLUMN RankId
+GO
+
+ALTER TABLE Training
+ADD RankId INT
+GO
+
+USE [ArmyTraining]
+GO
+/****** Object:  StoredProcedure [dbo].[TrainingGetAll]    Script Date: 10/01/2016 11:43:29 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER PROCEDURE [dbo].[TrainingGetAll]
+    @StartDate DateTime,
+    @EndDate DateTime,
+    @Duration Int,
+    @IsUpto Bit,
+    @DurationType Char(8),
+    @CountryId Int,
+    @SponsorCountryId Int,
+    @CourseTypeId Int,
+    @CourseId Int,
+    @CompletionType Int = NULL,
+    @RankId Int,
+    @PersonalNo NVarchar(50),
+    @CourseLevel Int,
+    @PageNumber Int = 1,
+    @Count Int = 20,
+    @TrainingLevel TinyInt,
+    @TrainingBkgId Int,
+    @TrainingId Int,
+    @TrainingYear Int,
+    @TotalCount Int OUT
+AS
+BEGIN
+
+DECLARE @TempTable TABLE(TempID Int IDENTITY(1,1),  Id Int, Remarks NVARCHAR(MAX), Course NVARCHAR(MAX), Country NVARCHAR(MAX), StartDate DateTime, EndDate DATETIME, PreRequisites NVARCHAR(MAX))
+
+INSERT INTO @TempTable
+SELECT DISTINCT vt.Id, vt.Remarks, vt.CourseName, vt.CountryName, vt.StartDate, vt.EndDate, vt.PreRequisites
+FROM ViewTraining vt 
+LEFT JOIN Trainee tee ON vt.Id = tee.TrainingId
+LEFT JOIN Person p ON tee.PersonId = p.Id
+WHERE vt.StartDate >= @StartDate AND vt.StartDate <= @EndDate
+	AND (@TrainingId = 0
+		AND (@CountryId = 0 OR vt.CountryId = @CountryId)
+		AND (@SponsorCountryId = 0 OR vt.SponsorCountryId = @SponsorCountryId)
+		AND (@CourseTypeId = 0 OR vt.CourseTypeId = @CourseTypeId)
+		AND (@CourseId = 0 OR vt.CourseId = @CourseId)
+		AND (@Duration = 0 OR 
+		(
+			@DurationType = 'Days' AND ((@IsUpTo = 1 AND @Duration >= NoOfDays) OR (@IsUpTo = 0 AND @Duration = NoOfDays)))
+			OR (@DurationType = 'Months' AND ((@IsUpTo = 1 AND @Duration >= NoOfMonths) OR (@IsUpTo = 0 AND @Duration = NoOfMonths)))
+			OR (@DurationType = 'Weeks' AND ((@IsUpTo = 1 AND @Duration >= NoOfWeeks) OR (@IsUpTo = 0 AND @Duration = NoOfWeeks)))
+			OR (@DurationType = 'Years' AND ((@IsUpTo = 1 AND @Duration >= NoOfYears) OR (@IsUpTo = 0 AND @Duration = NoOfYears)))
+		)
+		AND(@CompletionType = NULL OR @CompletionType = 0
+			OR (@CompletionType = 1 AND GETDATE() BETWEEN StartDate AND EndDate)
+			OR (@CompletionType = 2 AND GETDATE() < StartDate)
+			OR (@CompletionType = 3 AND GETDATE() > ENDDATE)
+		)
+		AND (@RankId = 0 OR tee.RankId = @RankId)
+		AND (@PersonalNo = '' OR RTRIM(LTRIM(p.PersonalNumber)) = @PersonalNo)
+		AND (@CourseLevel = 0 OR 
+		(
+			(
+				@CourseLevel = 1 AND NoOfMonths > 8) 
+				OR (@CourseLevel = 2 AND NoOfMonths > 3 
+				AND NoOfMonths <= 8) OR (@CourseLevel = 3 
+				AND NoOfMonths > 0 AND NoOfMonths <=3
+			)
+		  )
+		)
+		AND (@TrainingLevel = 0 OR vt.TrainingLevel = @TrainingLevel)
+		AND (@TrainingBkgId = 0 OR vt.TrainingBkgId = @TrainingBkgId)
+		AND (@TrainingYear = 0 OR DATEPART(YEAR, vt.StartDate) = @TrainingYear)
+		AND vt.IsActive=1
+		OR vt.Id = @TrainingId
+	)
+    ORDER BY vt.StartDate DESC
+    
+SET @TotalCount = (SELECT COUNT(*) FROM @TempTable)
+    
+SELECT * FROM @TempTable WHERE TempID > (@PageNumber - 1) * @Count AND TempID <= @PageNumber * @Count
+ORDER BY StartDate DESC
+END
+
+GO
+
+USE [ArmyTraining]
+GO
+/****** Object:  StoredProcedure [dbo].[TraineeInfoGetAll]    Script Date: 10/01/2016 12:36:26 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[TraineeInfoGetAll] 
+	@TrainingId Int,
+	@RankId Int
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT p.PersonalNumber, p.[Name]
+	FROM Person p
+	INNER JOIN Trainee tee
+	ON p.Id = tee.PersonId
+	INNER JOIN Training t
+	ON t.Id = tee.TrainingId
+	WHERE t.Id = @TrainingId
+	AND (@RankId = 0 OR tee.RankId = @RankId)
+END
+GO
+
+USE [ArmyTraining]
+GO
+/****** Object:  StoredProcedure [dbo].[TrainingUpdate]    Script Date: 10/01/2016 12:42:59 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+ALTER PROCEDURE [dbo].[TrainingUpdate] 
+	@Id int, 
+	@CourseId int,
+	@CountryID INT,
+	@SponsorCountryID INT,
+	@StartDate DATETIME,
+    @EndDate DATETIME,
+    @Remarks NVARCHAR(MAX),
+    @Prerequisites NVARCHAR(MAX),
+    @TrainingLevel TinyInt,
+    @AdditionalExpenses XML = NULL,
+    @Trainees XML,
+	@FlowId INT,
+	@AcceptanceDate DATETIME = NULL,
+	@AttachmentDate DATETIME = NULL,
+	@DocumentDate DATETIME = NULL,
+	@DraftGoDate DATETIME = NULL,
+    @GoDate DateTime = NULL,
+	@EntitlementDate DATETIME = NULL, 
+	@FltItineraryDate DATETIME = NULL,
+	@LetterToAllConcern DATETIME = NULL,
+	@MedicalDate DATETIME = NULL,
+	@NominationDate DATETIME = NULL,
+	@OfferLetterDate DATETIME = NULL,
+	@SelectionLetterDate  DATETIME = NUL
+AS
+BEGIN
+	SET NOCOUNT ON;
+	UPDATE Training
+	SET
+	CourseID = @CourseId
+	,CountryID = @CountryId
+	,SponsorCountryID = @SponsorCountryId
+	,StartDate = @StartDate
+	,EndDate = @EndDate
+	,Remarks = @Remarks
+	,TrainingLevel = @TrainingLevel
+	,PreRequisites = @Prerequisites
+	,AdditionalExpenditure = @AdditionalExpenses
+	WHERE ID = @Id
+	
+	DECLARE @idoc INT
+	
+	DELETE FROM ExpenditureInTraining WHERE TrainingID = @ID
+	DELETE FROM Trainee WHERE TrainingId = @ID
+	
+	EXEC sp_xml_preparedocument @idoc OUTPUT, @Trainees
+
+	INSERT INTO Trainee(TrainingID, PersonId, Expenditure, OtherExpenditure, Sponsor, DocName, RankId)
+    SELECT @ID, person, expence, otherExpence, sponsor, docName, rankId
+    FROM OPENXML (@idoc, 'trainees/trainee',1)
+			WITH (person INT, expence decimal(28,7), otherExpence decimal(28,7), sponsor nvarchar(128), docName nvarchar(255), rankId INT)
+
+	EXEC sp_xml_removedocument @idoc
+
+	IF EXISTS (SELECT [TrainingId] FROM [TrainingFlow] WHERE [TrainingId] = @Id)
+	BEGIN
+	UPDATE [TrainingFlow]
+	SET [OfferLetterDate] = @OfferLetterDate
+      ,[AcceptanceDate] = @AcceptanceDate
+      ,[NominationDate] = @NominationDate
+      ,[DraftGoDate] = @DraftGoDate
+      ,[GoDate] = @GoDate
+      ,[SelectionLetterDate] = @SelectionLetterDate
+      ,[LetterToAllConcern] = @LetterToAllConcern
+      ,[AttachmentDate] = @AttachmentDate
+      ,[MedicalDate] = @MedicalDate
+      ,[DocumentDate] = @DocumentDate
+      ,[FltItineraryDate] = @FltItineraryDate
+      ,[EntitlementDate] = @EntitlementDate
+	WHERE [TrainingId] = @Id
+	END
+	ELSE
+	BEGIN
+	INSERT INTO [TrainingFlow]
+           ([TrainingId]
+           ,[OfferLetterDate]
+           ,[AcceptanceDate]
+           ,[NominationDate]
+           ,[DraftGoDate]
+           ,[SelectionLetterDate]
+           ,[LetterToAllConcern]
+           ,[AttachmentDate]
+           ,[MedicalDate]
+           ,[DocumentDate]
+           ,[FltItineraryDate]
+           ,[EntitlementDate]
+           ,[GoDate])
+     VALUES
+           (@Id
+           ,@OfferLetterDate
+           ,@AcceptanceDate
+           ,@NominationDate
+           ,@DraftGoDate
+           ,@SelectionLetterDate
+           ,@LetterToAllConcern
+           ,@AttachmentDate
+           ,@MedicalDate
+           ,@DocumentDate
+           ,@FltItineraryDate
+           ,@EntitlementDate
+           ,@GoDate)
+	END
+END
+GO
+
+USE [ArmyTraining]
+GO
+/****** Object:  StoredProcedure [dbo].[TrainingReportGetAll]    Script Date: 10/01/2016 19:03:55 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+--Declare
+--@St DateTime,
+--@En DateTime
+--Set @St = convert(DateTime, '12/04/2000', 105)
+--Set @En = convert(DateTime, '12/04/2500', 105)
+--Exec TrainingReportGetAll @St, @En, 1, 10, 1, 0, 0, 0, 0, '', 0
+
+--Select * From ViewTraining
+
+ALTER PROCEDURE [dbo].[TrainingReportGetAll] 
+	@StartDate DateTime,
+    @EndDate DateTime,
+    @Duration Int,
+    @IsUpto Bit,
+    @DurationType Int,
+    @RankId Int,
+    @CountryId Int,
+    @SponsorCountryId Int,
+    @CourseId Int,
+    @PersonalNo NVarchar(50),
+	@CourseLevel Int,
+    @CourseTypeId Int,
+    @TrainingLevel TinyInt,
+    @TrainingBkgId Int,
+    @TrainingId Int,
+    @TrainingYear Int,
+    @CompletionType INT = NULL
+AS
+BEGIN
+	SET NOCOUNT ON;
+    SELECT vt.Id As TrainingId
+	,vt.StartDate
+    ,vt.EndDate
+    ,vt.CountryName as CountryName
+    ,vt.TrainingBkgName as TrainingBkg
+    ,vt.CourseName as CourseName
+    ,vt.TrainingLevel
+    ,vt.CourseTypeName AS CourseType
+    ,vt.Remarks
+    ,sc.Name AS SponsorCountryName
+    ,r.Name RankName
+	,p.Id as PersonId
+    ,p.PersonalNumber
+    ,p.Name
+	,svc.Name AS ServiceName
+    ,tf.[OfferLetterDate]
+    ,tf.[AcceptanceDate]
+    ,tf.[NominationDate]
+    ,tf.[DraftGoDate]
+    ,tf.[GoDate]
+    ,tf.[SelectionLetterDate]
+    ,tf.[LetterToAllConcern]
+    ,tf.[AttachmentDate]
+    ,tf.[MedicalDate]
+    ,tf.[DocumentDate]
+    ,tf.[FltItineraryDate]
+    ,tf.[EntitlementDate] 
+    ,t.Expenditure AS FinancialInvolvement
+    ,t.DocName
+    FROM ViewTraining vt 
+    INNER JOIN
+    Trainee t ON vt.Id = t.TrainingID
+    INNER JOIN
+    TrainingFlow tf ON vt.Id = tf.TrainingID AND tf.Id = (SELECT Max(tfl.Id) FROM TrainingFlow tfl WHERE tfl.TrainingId = vt.Id)
+    INNER JOIN
+    Person p ON p.Id = t.PersonID   
+    INNER JOIN Rank r ON
+    r.Id = t.RankId
+	INNER JOIN ArmyService svc ON
+	p.ArmyServiceId = svc.Id
+    LEFT JOIN Country sc ON
+    sc.Id = vt.SponsorCountryId
+    WHERE vt.StartDate >= @StartDate AND vt.StartDate <= @EndDate
+    AND (@TrainingId = 0
+		AND (@RankId = 0 OR p.RankId = @RankId)
+		AND (@CountryId = 0 OR vt.CountryId = @CountryId)
+		AND (@SponsorCountryId = 0 OR vt.SponsorCountryId = @SponsorCountryId)
+		AND (@CourseId = 0 OR vt.CourseId = @CourseId)
+		AND (@PersonalNo = '' OR RTRIM(LTRIM(p.PersonalNumber)) = @PersonalNo)
+		AND (@CourseTypeId = 0 OR vt.CourseTypeId = @CourseTypeId)
+		AND (@Duration = 0 OR 
+		(@DurationType = 4 AND ((@IsUpTo = 1 AND @Duration >= NoOfDays) OR (@IsUpTo = 0 AND @Duration = NoOfDays)))
+		OR (@DurationType = 2 AND ((@IsUpTo = 1 AND @Duration >= NoOfMonths) OR (@IsUpTo = 0 AND @Duration = NoOfMonths)))
+		OR (@DurationType = 3 AND ((@IsUpTo = 1 AND @Duration >= NoOfWeeks) OR (@IsUpTo = 0 AND @Duration = NoOfWeeks)))
+		OR (@DurationType = 1 AND ((@IsUpTo = 1 AND @Duration >= NoOfYears) OR (@IsUpTo = 0 AND @Duration = NoOfYears))))
+		AND (@CourseLevel = 0 OR 
+		((@CourseLevel = 1 AND NoOfMonths > 8) OR (@CourseLevel = 2 AND NoOfMonths > 3 AND NoOfMonths <= 8) OR (@CourseLevel = 3 AND NoOfMonths > 0 AND NoOfMonths <=3)))
+		AND(
+		@CompletionType = NULL OR @CompletionType = 0
+		OR (@CompletionType = 1 AND GETDATE() BETWEEN StartDate AND EndDate)
+		OR (@CompletionType = 2 AND GETDATE() < StartDate)
+		OR (@CompletionType = 3 AND GETDATE() > ENDDATE)
+		)
+		AND(
+		@TrainingLevel = 0 OR vt.TrainingLevel = @TrainingLevel
+		)
+		AND(
+		@TrainingBkgId = 0 OR vt.TrainingBkgId = @TrainingBkgId
+		)
+		AND (@TrainingYear = 0 OR DATEPART(YEAR, vt.StartDate) = @TrainingYear)
+		AND vt.IsActive=1
+		OR vt.Id = @TrainingId
+	)
+	ORDER BY vt.StartDate DESC
+END
+GO
+
+USE [ArmyTraining]
+GO
+/****** Object:  StoredProcedure [dbo].[TrainingGetForDuplicate]    Script Date: 10/01/2016 20:51:59 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		<Author,,Name>
+-- Create date: <Create Date,,>
+-- Description:	<Description,,>
+-- =============================================
+ALTER PROCEDURE [dbo].[TrainingGetForDuplicate] 
+	-- Add the parameters for the stored procedure here
+	@TrainingId int,
+	@CourseId int,
+	@StartDate Date
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+    -- Insert statements for procedure here
+	SELECT [Id]
+      ,[CountryId]
+      ,[SponsorCountryId]
+      ,[CourseId]
+      ,[StartDate]
+      ,[EndDate]
+      ,[Remarks]
+      ,[IsActive]
+      ,[Prerequisites]
+      ,[AdditionalExpenditure]
+      ,[TrainingLevel]
+  FROM [Training]
+  WHERE [CourseId] = @CourseId
+  AND [StartDate] = @StartDate
+  AND [IsActive] = 1
+  AND [Id] != @TrainingId
+END

@@ -1,0 +1,50 @@
+﻿body
+{
+    font-family: Trebuchet MS;
+    font-size: small;
+}
+
+input
+{
+    font-family: Trebuchet MS;
+    font-size: small;
+}
+
+textarea
+{
+    font-family: Trebuchet MS;
+    font-size: small;
+}
+
+select
+{
+    font-family: Trebuchet MS;
+    font-size: small;
+}
+
+.Header
+{
+	font-size: small;
+	font-weight: bold;
+	margin-top: 5px;
+}
+
+.Input
+{
+	font-size: small;
+	width: 200px;
+	margin-top: 5px;	
+}
+
+.ItemPaddingStyle
+{
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+.ItemStyle
+{
+	font-size: small;
+}
+
+

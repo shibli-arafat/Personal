@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B4717339-3E65-4195-BB9A-AB87F7D6968A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ArmyTraining.Presenter</RootNamespace>
+    <AssemblyName>ArmyTraining.Presenter</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CommissionDetailPresenter.cs" />
+    <Compile Include="CommissionListPresenter.cs" />
+    <Compile Include="Configurations.cs" />
+    <Compile Include="TrainingBackgroundDetailPresenter.cs" />
+    <Compile Include="TrainingBackgroundListPresenter.cs" />
+    <Compile Include="CourseDetailPresenter.cs" />
+    <Compile Include="CourseListPresenter.cs" />
+    <Compile Include="CourseTypeDetailPresenter.cs" />
+    <Compile Include="CourseTypeListPresenter.cs" />
+    <Compile Include="CountryDetailPresenter.cs" />
+    <Compile Include="CountryListPresenter.cs" />
+    <Compile Include="PersonDetailPresenter.cs" />
+    <Compile Include="PersonListPresenter.cs" />
+    <Compile Include="ServiceDetailPresenter.cs" />
+    <Compile Include="ServiceListPresenter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RankDetailPresenter.cs" />
+    <Compile Include="RankListPresenter.cs" />
+    <Compile Include="TrainingReportManagerPresenter.cs" />
+    <Compile Include="Views\ITrainingBackgroundDetail.cs" />
+    <Compile Include="Views\ICourseDetailView.cs" />
+    <Compile Include="Views\ICourseListView.cs" />
+    <Compile Include="Views\ICourseTypeDetail.cs" />
+    <Compile Include="Views\ICourseTypeListView.cs" />
+    <Compile Include="Views\ICountryDetail.cs" />
+    <Compile Include="Views\ICountryListView.cs" />
+    <Compile Include="Views\IPersonDetailView.cs" />
+    <Compile Include="Views\IPersonListView.cs" />
+    <Compile Include="Views\IServiceDetail.cs" />
+    <Compile Include="Views\IDecorationDetail.cs" />
+    <Compile Include="Views\IRankDetailView.cs" />
+    <Compile Include="Views\IRankListView.cs" />
+    <Compile Include="Views\IServiceListView.cs" />
+    <Compile Include="Views\ITrainingReportManagerView.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ArmyTraining.Internal\ArmyTraining.Internal.csproj">
+      <Project>{2EC2226D-6BB9-4EAA-8F3C-4E428E46B851}</Project>
+      <Name>ArmyTraining.Internal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ArmyTraining.Model\ArmyTraining.Model.csproj">
+      <Project>{4BACC17D-9137-4208-9D9C-C5FEC18D6E13}</Project>
+      <Name>ArmyTraining.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,83 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="DefenseTraining.Web.SiteMaster" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head runat="server">
+    <title>Navy Training</title>
+    <link href="Styles/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/jquery.window.css" rel="stylesheet" type="text/css" />
+    <link href="Styles/jquery.ui.theme.css" rel="stylesheet" type="text/css" />
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <!-- JavaScript Includes -->
+    <script src="scripts/jquery.js" type="text/javascript"></script>
+    <script src="Scripts/jquery-ui-1.8.12.custom.min.js" type="text/javascript"></script>
+    <script src="scripts/jquery.window.js" type="text/javascript"></script>
+    <script src="Scripts/jquery.tmpl.min.js" type="text/javascript"></script>
+    <script src="Scripts/json2.js" type="text/javascript"></script>
+    <script src="Scripts/common.js" type="text/javascript"></script>
+</head>
+<body style="background-color: #b6b7bc;">
+    <form runat="server">
+    <div class="page">
+        <div class="header">
+            <table>
+                <tr>
+                    <td>
+                        <img src="Styles/images/navy-logo.jpg" alt="" style="width: 50px; height: 55px" />
+                    </td>
+                    <td>
+                        <h1>
+                            Navy Training Management System</h1>
+                    </td>
+                    <td style="width: 100px; text-align: right;">
+                        <asp:Button Text="Logout" ID="btnLogout" runat="server" OnClick="btnLogout_Click" />
+                    </td>
+                </tr>
+            </table>
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false"
+                    IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Default.aspx" Text="Home" ToolTip="Go to home page">
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Admin" NavigateUrl="#" ToolTip="Admin section">
+                            <asp:MenuItem NavigateUrl="~/UserList.aspx" Text="Users" ToolTip="Manages user information" />
+                            <asp:MenuItem NavigateUrl="~/RoleList.aspx" Text="Roles" ToolTip="Manages user role information" />
+                            <asp:MenuItem NavigateUrl="~/AllowanceSettingEdit.aspx" Text="Allowance Configuration"
+                                ToolTip="Mange settings of allowance" />
+                            <asp:MenuItem NavigateUrl="~/ExpenseHeadList.aspx" Text="Expense Heads" ToolTip="Mange expense head" />
+                            <asp:MenuItem NavigateUrl="~/BudgetList.aspx" Text="Yearly Budgets" ToolTip="Mange yearly budget" />
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Metadata" NavigateUrl="#" ToolTip="Metadata section">
+                            <asp:MenuItem NavigateUrl="~/CourseList.aspx" Text="Courses" ToolTip="Manage courses" />
+                            <asp:MenuItem NavigateUrl="~/RankGroupList.aspx" Text="Rank Groups" ToolTip="Manage rank groups" />
+                            <asp:MenuItem NavigateUrl="~/RankList.aspx" Text="Ranks" ToolTip="Manage rank" />
+                            <asp:MenuItem NavigateUrl="~/PersonList.aspx" Text="Persons" ToolTip="Manages person information" />
+                            <asp:MenuItem NavigateUrl="~/CountryList.aspx" Text="Countries" ToolTip="Manage country" />
+                            <asp:MenuItem NavigateUrl="~/EventTypeList.aspx" Text="Training Types" ToolTip="Manage event types" />
+                            <asp:MenuItem NavigateUrl="~/RequiredDocList.aspx" Text="Required Docs" ToolTip="Manage required documents" />
+                        </asp:MenuItem>
+                        <asp:MenuItem Text="Trainings" ToolTip="Training section">
+                            <asp:MenuItem NavigateUrl="~/TrainingOfferList.aspx" Text="Training Offers" ToolTip="View training offer list" />
+                            <asp:MenuItem NavigateUrl="~/TrainingList.aspx" Text="Trainings" ToolTip="View training list" />
+                            <asp:MenuItem NavigateUrl="~/PaymentScheduleList.aspx" Text="Payment Schedules" ToolTip="View payment schedules" />
+                        </asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div style="background-color: #E09B1B; padding: 5px; color: #ffffff; text-align: center;">
+            <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
+    </div>
+    </form>
+</body>
+</html>

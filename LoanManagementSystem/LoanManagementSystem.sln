@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dit.Lms.Api", "Dit.MemberInformation\Dit.Lms.Api.csproj", "{DA27A452-701C-4F05-84A8-B51A8FC191D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dit.Lms.Gui", "Dit.Lms.Gui\Dit.Lms.Gui.csproj", "{A038C4F6-97EA-43A3-A10D-16EB08D646C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dit.Common", "Dit.Common\Dit.Common.csproj", "{38B8396C-B6A8-473C-80C6-3A2864FA882B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA27A452-701C-4F05-84A8-B51A8FC191D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA27A452-701C-4F05-84A8-B51A8FC191D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA27A452-701C-4F05-84A8-B51A8FC191D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA27A452-701C-4F05-84A8-B51A8FC191D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A038C4F6-97EA-43A3-A10D-16EB08D646C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A038C4F6-97EA-43A3-A10D-16EB08D646C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A038C4F6-97EA-43A3-A10D-16EB08D646C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A038C4F6-97EA-43A3-A10D-16EB08D646C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38B8396C-B6A8-473C-80C6-3A2864FA882B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38B8396C-B6A8-473C-80C6-3A2864FA882B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38B8396C-B6A8-473C-80C6-3A2864FA882B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38B8396C-B6A8-473C-80C6-3A2864FA882B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

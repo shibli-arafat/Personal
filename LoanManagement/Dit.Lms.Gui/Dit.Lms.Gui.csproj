@@ -1,0 +1,563 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A038C4F6-97EA-43A3-A10D-16EB08D646C2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Dit.Lms.Gui</RootNamespace>
+    <AssemblyName>Dit.Lms.Gui</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>DIT.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>http://localhost/Dit.Lms.Gui/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DebugSymbols>false</DebugSymbols>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutUs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutUs.Designer.cs">
+      <DependentUpon>AboutUs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BackupDatabase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BackupDatabase.Designer.cs">
+      <DependentUpon>BackupDatabase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseSaveForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseSaveForm.Designer.cs">
+      <DependentUpon>BaseSaveForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigDetailSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigDetailSave.Designer.cs">
+      <DependentUpon>ConfigDetailSave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ControlPanel.Designer.cs">
+      <DependentUpon>ControlPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExpenseReportWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExpenseReportWindow.Designer.cs">
+      <DependentUpon>ExpenseReportWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExpenseSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExpenseSave.Designer.cs">
+      <DependentUpon>ExpenseSave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExpenseHeadSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExpenseHeadSave.Designer.cs">
+      <DependentUpon>ExpenseHeadSave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExpenseHeadList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExpenseHeadList.Designer.cs">
+      <DependentUpon>ExpenseHeadList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExpenseList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExpenseList.Designer.cs">
+      <DependentUpon>ExpenseList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IncomeReportWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IncomeReportWindow.Designer.cs">
+      <DependentUpon>IncomeReportWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IncomeSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IncomeSave.Designer.cs">
+      <DependentUpon>IncomeSave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IncomeHeadSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IncomeHeadSave.Designer.cs">
+      <DependentUpon>IncomeHeadSave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IncomeHeadList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IncomeHeadList.Designer.cs">
+      <DependentUpon>IncomeHeadList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IncomeList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IncomeList.Designer.cs">
+      <DependentUpon>IncomeList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoanDisbursementSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoanDisbursementSave.Designer.cs">
+      <DependentUpon>LoanDisbursementSave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoanDisbursementList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoanDisbursementList.Designer.cs">
+      <DependentUpon>LoanDisbursementList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoanRepaymentSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoanRepaymentSave.Designer.cs">
+      <DependentUpon>LoanRepaymentSave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoanRepaymentList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoanRepaymentList.Designer.cs">
+      <DependentUpon>LoanRepaymentList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainContainer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainContainer.Designer.cs">
+      <DependentUpon>MainContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MemberList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MemberList.Designer.cs">
+      <DependentUpon>MemberList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MemberReportWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MemberReportWindow.Designer.cs">
+      <DependentUpon>MemberReportWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MemberSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MemberSave.Designer.cs">
+      <DependentUpon>MemberSave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MonthlyDepositBulkSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MonthlyDepositBulkSave.Designer.cs">
+      <DependentUpon>MonthlyDepositBulkSave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MonthlyDepositEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MonthlyDepositEdit.Designer.cs">
+      <DependentUpon>MonthlyDepositEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MonthlyDepositList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MonthlyDepositList.Designer.cs">
+      <DependentUpon>MonthlyDepositList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MonthlyDepositReportWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MonthlyDepositReportWindow.Designer.cs">
+      <DependentUpon>MonthlyDepositReportWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AboutUs.resx">
+      <DependentUpon>AboutUs.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BackupDatabase.resx">
+      <DependentUpon>BackupDatabase.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseForm.resx">
+      <DependentUpon>BaseForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseSaveForm.resx">
+      <DependentUpon>BaseSaveForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigDetailSave.resx">
+      <DependentUpon>ConfigDetailSave.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlPanel.resx">
+      <DependentUpon>ControlPanel.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExpenseReportWindow.resx">
+      <DependentUpon>ExpenseReportWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExpenseSave.resx">
+      <DependentUpon>ExpenseSave.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExpenseHeadSave.resx">
+      <DependentUpon>ExpenseHeadSave.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExpenseHeadList.resx">
+      <DependentUpon>ExpenseHeadList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExpenseList.resx">
+      <DependentUpon>ExpenseList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IncomeReportWindow.resx">
+      <DependentUpon>IncomeReportWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IncomeSave.resx">
+      <DependentUpon>IncomeSave.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IncomeHeadSave.resx">
+      <DependentUpon>IncomeHeadSave.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IncomeHeadList.resx">
+      <DependentUpon>IncomeHeadList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IncomeList.resx">
+      <DependentUpon>IncomeList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoanDisbursementSave.resx">
+      <DependentUpon>LoanDisbursementSave.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoanDisbursementList.resx">
+      <DependentUpon>LoanDisbursementList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoanRepaymentSave.resx">
+      <DependentUpon>LoanRepaymentSave.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoanRepaymentList.resx">
+      <DependentUpon>LoanRepaymentList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainContainer.resx">
+      <DependentUpon>MainContainer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemberList.resx">
+      <DependentUpon>MemberList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemberReportWindow.resx">
+      <DependentUpon>MemberReportWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemberSave.resx">
+      <DependentUpon>MemberSave.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonthlyDepositBulkSave.resx">
+      <DependentUpon>MonthlyDepositBulkSave.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonthlyDepositEdit.resx">
+      <DependentUpon>MonthlyDepositEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonthlyDepositList.resx">
+      <DependentUpon>MonthlyDepositList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MonthlyDepositReportWindow.resx">
+      <DependentUpon>MonthlyDepositReportWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportMenu.resx">
+      <DependentUpon>ReportMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ExpenseReportDateWise.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ExpenseReportDateWise.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ExpenseReportHeadWise.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ExpenseReportHeadWise.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\IncomeReportDateWise.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>IncomeReportDateWise.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\IncomeReportHeadWise.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>IncomeReportHeadWise.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MemberDepositReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MemberDepositReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MemberReportAll.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MemberReportAll.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MemberReportDetail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MemberReportDetail.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\MonthlyDepositReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>MonthlyDepositReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportViewerWindow.resx">
+      <DependentUpon>ReportViewerWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemConfigSave.resx">
+      <DependentUpon>SystemConfigSave.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserList.resx">
+      <DependentUpon>UserList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserSave.resx">
+      <DependentUpon>UserSave.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="ReportMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportMenu.Designer.cs">
+      <DependentUpon>ReportMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ExpenseReportDateWise.cs">
+      <DependentUpon>ExpenseReportDateWise.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\ExpenseReportHeadWise.cs">
+      <DependentUpon>ExpenseReportHeadWise.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\IncomeReportDateWise.cs">
+      <DependentUpon>IncomeReportDateWise.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\IncomeReportHeadWise.cs">
+      <DependentUpon>IncomeReportHeadWise.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reports\MemberDepositReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MemberDepositReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\MemberReportAll.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MemberReportAll.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\MemberReportDetail.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MemberReportDetail.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\MonthlyDepositReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MonthlyDepositReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReportViewerWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportViewerWindow.Designer.cs">
+      <DependentUpon>ReportViewerWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemConfigSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemConfigSave.Designer.cs">
+      <DependentUpon>SystemConfigSave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserList.Designer.cs">
+      <DependentUpon>UserList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserSave.Designer.cs">
+      <DependentUpon>UserSave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dit.MemberInformation\Dit.Lms.Api.csproj">
+      <Project>{DA27A452-701C-4F05-84A8-B51A8FC191D9}</Project>
+      <Name>Dit.Lms.Api</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DIT.ico" />
+    <None Include="Resources\metal-texture1.jpg" />
+    <None Include="Resources\login.jpg" />
+    <None Include="Resources\button.jpg" />
+    <None Include="Resources\Background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

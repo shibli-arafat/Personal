@@ -1,0 +1,16 @@
+1. Deposit report is not being shown from July, it's showing from August which is wrong
+2. Company name can't be contained in the row
+3. Enter doesn't work in all the forms
+4. Generate a balance sheet report
+5. Put option form authorizing the report
+
+Like:
+
+Income			Expense			Balance		Comments
+========================================================================
+I-Head1		5000.00 E-Head1		2000.00
+I-Head2		3000.00	E-Head2		1000.00
+I-Head3		1500.00
+------------------------------------------------------------------------
+Total		9500.00			3000.00	6500.00
+========================================================================
